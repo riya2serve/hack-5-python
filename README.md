@@ -1,2 +1,2 @@
-# hack-5-python
-notebooks for learning python
+
+This repository contains several jupyter notebooks
