@@ -39,7 +39,7 @@ def init_function(N, f):
     return [0] * (N - derived_count) + [1] * derived_count
 
 def run_sim(N, f, ngens, verbose = False):
-    population = init_population(N,f)
+    population = init_function(N,f)
 
     for generation in range(ngens):
         # Simulate one step (generation) of the population
@@ -63,13 +63,13 @@ def main():
     parser.add_argument('--f', type=float, default=0.2, help='Frequency of derived allele (f)')
     parser.add_argument('--ngens', type=int, default=10, help='Number of generations')
     
-    # Verbose flag for additional debugging information
+    # Verbose flag for additional debugging
     parser.add_argument('--verbose', action='store_true', help='Print verbose debugging information')
     
     args = parser.parse_args()
     
     # Run the simulation with user-defined arguments
-    run_simulation(args.N, args.f, args.ngens, verbose=args.verbose)
+    run_sim(args.N, args.f, args.ngens, verbose=args.verbose)
 
 
 if __name__ == "__main__":
