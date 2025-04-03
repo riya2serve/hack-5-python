@@ -19,6 +19,8 @@ to show the change through time"""
 # Initialize chart with allele frequency of the derived allele. 
 #`line_chart` expects a list, so we must wrap `p.f` in square brackets
 
+chart = st.line_chart([p.f])
+
 # Initially we'll run a loop 50 times
 for i in range(1, 50):
     # Step 1 wf generation
