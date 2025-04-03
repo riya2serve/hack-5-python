@@ -22,10 +22,12 @@ chart = st.line_chart([p.f])
 
 #for Challenge #1:
 threshold = 0.001 #defining this as my threshold allele frequency
-stable = 0  #empty counter for num. iterations passed with small change in frequency
-max_stable = 2 #defining when I want it to stop 
-
 prev_freq = None  #var to hold previous allele frequency
+
+#for Challenge #2:
+progress_bar = st.sidebar.progress(0)
+status_text = st.sidebar.empty()
+last_rows = np.random.randn(1, 1)
 
 # Initially we'll run a loop 60 times
 for i in range(1, 60):
@@ -37,14 +39,12 @@ for i in range(1, 60):
     chart.add_rows([freq])
 
 #check frequency change
-    if prev_freq is not None and abs(freq - prev_freq) < threshold:
-        stable += 1  # Increment stable count if change is small
-    else:
-        stable = 0  # Reset if significant change in frequency
-# if frequency stable for `max_stable` iterations, BREAK the loop
-    if stable >= max_stable:
-        print("Frequency has stabilized. Exiting loop.")
-        break
+    if prev_freq is not None and abs(freq - prev_freq) <= threshold:
+    	print("Frequency has stabilized. Exiting loop.")
+    	break
+
+status_text.text(f"{i}% complete")
+progress_bar.progress(i)
 
 prev_freq = freq
 time.sleep(0.05)
@@ -56,9 +56,16 @@ st.button("Rerun")
 user to re-run the code to incorporate the changes."""
 
 # Challenge 1: End the visualization when no longer 'interesting'
-# Challenge 2: Add slider to set number of wf generations to simulate
-# Challenge 3: Add a progress bar
-# Challenge 4: Add sliders to set N and f parameters for the pop
+# Challenge 2: Add a status message
+
+
+# Streamlit widgets automatically run the script from top to bottom. Since
+# this button is not connected to any other logic, it just causes a plain
+# rerun.
+
+# Challenge 3: Add slider to set number of wf generations to simulate
+# Challenge 4: Add a progress bar
+# Challenge 5: Add sliders to set N and f parameters for the pop
 
 
 
