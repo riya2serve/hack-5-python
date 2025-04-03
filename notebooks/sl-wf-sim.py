@@ -13,10 +13,11 @@ st.title('Simple Wright-Fisher Simulation of Genetic Drift')
 #   N=10, f=0.2
 p = Population()
 
-# Initialize the chart with the initial allele frequency of the derived
-# allele. `line_chart` expects a list, so we must wrap `p.f` in square
-# brackets to pass a list
-chart = st.line_chart([p.f])
+"""Basic code to simulate wf and use streamlit LineChart 
+to show the change through time"""
+
+# Initialize chart with allele frequency of the derived allele. 
+#`line_chart` expects a list, so we must wrap `p.f` in square brackets
 
 # Initially we'll run a loop 50 times
 for i in range(1, 50):
@@ -31,3 +32,4 @@ for i in range(1, 50):
 
 # Add a button to rerun the simulation
 st.button("Rerun")
+
