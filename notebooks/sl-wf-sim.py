@@ -3,6 +3,6 @@ import pandas as pd
 import numpy as np
 import time # <- We'll need this later as well
 
-from wf-sim.py import Population
+from wf_sim.py import Population
 
-st.title('Hello :earth_americas:') #parses this as an emoji
+st.title('Simple Wright-Fisher Simulation of Genetic Drift')
