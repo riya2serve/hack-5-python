@@ -16,7 +16,7 @@ if __name__ == '__main__':
     numbers = range(0, length) #takes integer value passed in
     ## create a pool of workers
     ## max_workers determines the number of parallel process to run
-    with ProcessPoolExecutor(max_workers=4) as executor:
+    with ProcessPoolExecutor(max_workers=4) as executor: #this is number of parallel processeors!!!
         ## Submit all the jobs to the executor
         results = [executor.submit(task, num) for num in numbers] #send tasks to CPU worker pool 
 
