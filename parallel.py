@@ -18,8 +18,9 @@ if __name__ == '__main__':
     ## max_workers determines the number of parallel process to run
     with ProcessPoolExecutor(max_workers=4) as executor:
         ## Submit all the jobs to the executor
-        results = [executor.submit(task, num) for num in numbers]
+        results = [executor.submit(task, num) for num in numbers] #send tasks to CPU worker pool 
 
         ## As jobs finish, pull the results and print them
-        for future in as_completed(results):
+        for future in as_completed(results): #taking list and detecting when job is finished
+        	#detects completion when worker pools finish their 'tasks'
                 print(f"Result: {future.result()}")
